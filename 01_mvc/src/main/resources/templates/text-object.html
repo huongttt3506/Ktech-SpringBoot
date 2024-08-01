@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>[[${student.name}]]'s Profile</h1>
+<p>Name: <span th:text="${student.getName()}"></span></p>
+<p>Email: [[${student.email}]]</p>
+</body>
+</html>

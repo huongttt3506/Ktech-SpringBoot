@@ -1,5 +1,6 @@
 package com.example.demo.thyme;
 
+import com.example.demo.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,5 +16,19 @@ public class MvcController {
         model.addAttribute("major", "CSE");
         model.addAttribute("grade", 2.48);
         return "text.html";
+    }
+
+    @RequestMapping("text-object")
+    public String textObj(Model model) {
+        Student alex = new Student(
+                "Alex",
+                "alex@gmail.com"
+        );
+
+        model.addAttribute(
+                "student",
+                alex
+        );
+        return "text-object.html";
     }
 }
