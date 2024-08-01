@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+import java.util.Random;
+
 @Controller
 public class MvcController {
     @RequestMapping("text")
@@ -31,4 +34,45 @@ public class MvcController {
         );
         return "text-object.html";
     }
+
+    @RequestMapping("is-logged-in")
+    public String isLoggedIn(Model model) {
+        model.addAttribute(
+                "isLoggedIn",
+                isLoggedIn()
+        );
+        return "if-unless.html";
+    }
+
+    private boolean isLoggedIn() {
+        return (new Random()).nextInt() % 2 == 0;
+    }
+
+    @RequestMapping("each")
+    public String eachNames(Model model) {
+        List<String> names = List.of(
+                "Alex",
+                "Brad",
+                "Chad",
+                "Dave",
+                "Eric",
+                "Fred"
+        );
+        for (String name : names) {
+            System.out.println(name);
+        }
+        model.addAttribute("names", names);
+
+        List<Student> students = List.of(
+                new Student("Alex", "alex@gmail.com"),
+                new Student("Brad", "brad@gmail.com"),
+                new Student("Chad", "chad@gmail.com")
+        );
+        for (Student student : students) {}
+        model.addAttribute("students", students);
+
+        return "each.html";
+    }
+
+
 }
