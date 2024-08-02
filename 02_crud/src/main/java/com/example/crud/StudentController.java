@@ -28,7 +28,7 @@ public class StudentController {
     ) {
         service.createStudent(name, email);
         // POST - redirect - GET
-        return "redirect:/create-view";
+        return "redirect:/home";
 
         // Double Post Problem!!!
         // return "create.html";
