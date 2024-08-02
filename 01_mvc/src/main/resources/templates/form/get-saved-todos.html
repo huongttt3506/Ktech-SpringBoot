@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
 <body>
-<p>TODO: [[${todo}]]</p>
+<h1>TODOs</h1>
+<p>Saved: [[${savedTodo}]]</p>
+<ul>
+  <li th:each="todo: ${todoList}" th:text="${todo}"></li>
+</ul>
 <a href="/save-todo">Back</a>
 </body>
 </html>

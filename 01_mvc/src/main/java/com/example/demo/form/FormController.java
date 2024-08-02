@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class FormController {
     // @RequestMapping("send")
@@ -33,13 +36,17 @@ public class FormController {
         return "form/save-todo.html";
     }
 
+    private List<String> todos = new ArrayList<>();
+
     @PostMapping("get-saved-todos")
     public String getSavedTodos(
             @RequestParam("todo")
             String todo,
             Model model
     ) {
-        model.addAttribute("todo", todo);
+        todos.add(todo);
+        model.addAttribute("savedTodo", todo);
+        model.addAttribute("todoList", todos);
         return "form/get-saved-todos.html";
     }
 }
