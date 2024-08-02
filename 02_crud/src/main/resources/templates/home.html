@@ -19,6 +19,7 @@
   <p>ID: [[${student.id}]]</p>
   <p>이름: [[${student.name}]]</p>
   <p>이메일: [[${student.email}]]</p>
+  <a th:href="@{/{id} (id=${student.id})}">Read One</a>
   <hr>
 </div>
 <a href="/create-view">Create</a>
