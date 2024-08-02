@@ -44,7 +44,7 @@ public class StudentController {
         return "home.html";
     }
 
-    // http://127.0.0.1:8080 /1
+    // http://127.0.0.1:8080/1
     // http://127.0.0.1:8080/2
     // http://127.0.0.1:8080/"3" => Long id
     // 경로 변수
@@ -57,5 +57,20 @@ public class StudentController {
         StudentDto dto = service.readStudent(id);
         model.addAttribute("student", dto);
         return "read.html";
+    }
+
+    // http://127.0.0.1/1/update-view
+    // http://127.0.0.1/2/update-view
+    // http://127.0.0.1/3/update-view
+    // http://127.0.0.1/4/update-view
+    @GetMapping("{id}/update-view")
+    public String updateView(
+            @PathVariable("id")
+            Long id,
+            Model model
+    ) {
+        StudentDto dto = service.readStudent(id);
+        model.addAttribute("student", dto);
+        return "update.html";
     }
 }
