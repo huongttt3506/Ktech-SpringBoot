@@ -73,4 +73,21 @@ public class StudentController {
         model.addAttribute("student", dto);
         return "update.html";
     }
+
+    // http://127.0.0.1/1/update
+    // http://127.0.0.1/2/update
+    // http://127.0.0.1/3/update
+    @PostMapping("{id}/update")
+    public String update(
+            @PathVariable("id")
+            Long id,
+            @RequestParam("name")
+            String name,
+            @RequestParam("email")
+            String email
+    ) {
+        service.updateStudent(id, name, email);
+        // POST - redirect - GET
+        return String.format("redirect:/%s", id);
+    }
 }
