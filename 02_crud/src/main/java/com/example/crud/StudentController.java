@@ -90,4 +90,24 @@ public class StudentController {
         // POST - redirect - GET
         return String.format("redirect:/%s", id);
     }
+
+    @GetMapping("{id}/delete-view")
+    public String deleteView(
+            @PathVariable("id")
+            Long id,
+            Model model
+    ) {
+        StudentDto dto = service.readStudent(id);
+        model.addAttribute("student", dto);
+        return "delete.html";
+    }
+
+    @PostMapping("{id}/delete")
+    public String delete(
+            @PathVariable("id")
+            Long id
+    ) {
+        service.deleteStudent(id);
+        return "redirect:/home";
+    }
 }

@@ -63,4 +63,26 @@ public class StudentService {
         }
         return null;
     }
+
+    public boolean deleteStudent(Long id) {
+        // 찾고 있는 학생의 위치
+        int targetIdx = -1;
+        // 각 학생을 찾아가며
+        for (int i = 0; i < studentList.size(); i++) {
+            StudentDto dto = studentList.get(i);
+            // 해당 학생의 id가 일치하면
+            if (dto.getId().equals(id)) {
+                // 저장하고
+                targetIdx = i;
+                // 종료한다.
+                break;
+            }
+        }
+        if (targetIdx != -1) {
+            studentList.remove(targetIdx);
+            return true;
+        }
+        return false;
+    }
+
 }
