@@ -27,4 +27,19 @@ public class FormController {
         model.addAttribute("message", message);
         return "form/receive.html";
     }
+
+    @GetMapping("save-todo")
+    public String saveTodo() {
+        return "form/save-todo.html";
+    }
+
+    @PostMapping("get-saved-todos")
+    public String getSavedTodos(
+            @RequestParam("todo")
+            String todo,
+            Model model
+    ) {
+        model.addAttribute("todo", todo);
+        return "form/get-saved-todos.html";
+    }
 }
