@@ -73,6 +73,4 @@ public class MvcController {
 
         return "each.html";
     }
-
-
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Send Message</h1>
+<!-- 데이터를 보내기 위한 양식 -->
+<!-- action: 이 데이터를 어디(URL)로 보낼지 -->
+<form action="/receive" method="post">
+  <label for="from-input">From: </label>
+  <input type="text" id="from-input" name="from"><br>
+
+  <!-- label: input의 역할을 설명하며, 편의 기능을 제공 -->
+  <label for="message-input">Message: </label>
+  <!-- input: 사용자가 데이터를 넣을 곳 -->
+  <input type="text" id="message-input" name="message"><br>
+  <!-- type="submit": 제출버튼 -->
+  <input type="submit" value="Send Message">
+</form>
+</body>
+</html>
