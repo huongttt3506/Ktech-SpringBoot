@@ -21,4 +21,8 @@ public class StudentService {
         studentList.add(newStudent);
         return newStudent;
     }
+
+    public List<StudentDto> readAllStudents() {
+        return studentList;
+    }
 }

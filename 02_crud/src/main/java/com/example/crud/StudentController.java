@@ -1,6 +1,7 @@
 package com.example.crud;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,5 +32,14 @@ public class StudentController {
 
         // Double Post Problem!!!
         // return "create.html";
+    }
+
+    @GetMapping("home")
+    public String home(Model model) {
+        model.addAttribute(
+                "studentList",
+                service.readAllStudents()
+        );
+        return "home.html";
     }
 }

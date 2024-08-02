@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Student List</h1>
+<!-- 저장된 학생이 없는 경우 -->
+<div th:if="${studentList.isEmpty()}">
+  <p>No students here...</p>
+</div>
+
+<!-- 저장된 학생이 있는 경우 -->
+<div
+    th:unless="${studentList.isEmpty()}"
+    th:each="student: ${studentList}"
+>
+  <p>ID: [[${student.id}]]</p>
+  <p>이름: [[${student.name}]]</p>
+  <p>이메일: [[${student.email}]]</p>
+  <hr>
+</div>
+<a href="/create-view">Create</a>
+</body>
+</html>
