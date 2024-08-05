@@ -28,6 +28,8 @@ public class StudentController {
         dao.updateStudent(alex);
         System.out.println(dao.readStudent(1L));
 
+        dao.deleteStudent(2L);
+
         return "test.html";
     }
 }

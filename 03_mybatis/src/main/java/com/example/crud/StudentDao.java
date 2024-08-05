@@ -49,4 +49,12 @@ public class StudentDao {
             mapper.updateStudent(student);
         }
     }
+
+    public void deleteStudent(Long id) {
+        try (SqlSession session = sessionFactory.openSession()) {
+            StudentMapper mapper =
+                    session.getMapper(StudentMapper.class);
+            mapper.deleteStudent(id);
+        }
+    }
 }

@@ -13,9 +13,12 @@ VALUES('alex', 'alex@gmail.com', 10, '01011112222');
 INSERT INTO student(name, email, age, phone)
 VALUES('brad', 'brad@gmail.com', 10, '01011112222');
 
-UPDATE student SET 
-    name = ?, 
-    email = ?, 
-    age = ?, 
-    phone = ? 
-WHERE id = ?;
+-- UPDATE student SET 
+--     name = ?, 
+--     email = ?, 
+--     age = ?, 
+--     phone = ? 
+-- WHERE id = ?;
+
+-- DELETE FROM student
+-- WHERE id = ?;
