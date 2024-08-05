@@ -17,6 +17,14 @@ public class StudentDao {
         this.sessionFactory = sessionFactory;
     }
 
+    public void createStudent(Student student) {
+        try (SqlSession session = sessionFactory.openSession()) {
+            StudentMapper mapper =
+                    session.getMapper(StudentMapper.class);
+            mapper.insertStudent(student);
+        }
+    }
+
     public List<Student> readStudentAll() {
         // sqlSession을 try - with - resource로 만든다.
         try (SqlSession session = sessionFactory.openSession()){

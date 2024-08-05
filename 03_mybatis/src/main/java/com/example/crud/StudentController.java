@@ -12,6 +12,13 @@ public class StudentController {
 
     @RequestMapping("test")
     public String test() {
+        dao.createStudent(new Student(
+                null,
+                "alex",
+                19,
+                "01000000000",
+                "alex@gmail.com"
+        ));
         System.out.println(dao.readStudentAll());
         return "test.html";
     }
