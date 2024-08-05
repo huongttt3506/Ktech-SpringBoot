@@ -12,14 +12,16 @@ public class StudentController {
 
     @RequestMapping("test")
     public String test() {
-        dao.createStudent(new Student(
-                null,
-                "alex",
-                19,
-                "01000000000",
-                "alex@gmail.com"
-        ));
+//        dao.createStudent(new Student(
+//                null,
+//                "alex",
+//                19,
+//                "01000000000",
+//                "alex@gmail.com"
+//        ));
         System.out.println(dao.readStudentAll());
+        System.out.println(dao.readStudent(1L));
+        System.out.println(dao.readStudent(2L));
         return "test.html";
     }
 }

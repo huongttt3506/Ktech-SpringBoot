@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS student;
 CREATE TABLE student(
     id integer primary key AUTOINCREMENT,
     name text,

@@ -15,6 +15,9 @@ public interface StudentMapper {
             "VALUES(#{name}, #{email}, #{age}, #{phone});")
     void insertStudent(Student student);
 
-    @Select("SELECT * FROM student")
+    @Select("SELECT * FROM student;")
     List<Student> selectStudentAll();
+
+    @Select("SELECT * FROM student WHERE id = #{id};")
+    Student selectStudent(Long id);
 }
