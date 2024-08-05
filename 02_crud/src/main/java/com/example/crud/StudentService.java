@@ -10,6 +10,12 @@ public class StudentService {
     // 마지막 사용된 id를 보관할 변수
     private Long nextId = 1L;
     private final List<StudentDto> studentList = new ArrayList<>();
+    private StudentRepository repository;
+
+    public StudentService(StudentRepository repository) {
+        this.repository = repository;
+    }
+
 
     public StudentDto createStudent(
             String name,
@@ -19,6 +25,7 @@ public class StudentService {
         System.out.println(newStudent);
         nextId++;
         studentList.add(newStudent);
+        repository.create(newStudent);
         return newStudent;
     }
 
