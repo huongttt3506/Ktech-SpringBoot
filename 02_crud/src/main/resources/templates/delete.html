@@ -9,6 +9,6 @@
 <form th:action="@{/{id}/delete (id=${student.id})}" method="post">
   <input type="submit" value="Delete">
 </form>
-<a href="/home">Back</a>
+<a th:href="@{/{id} (id=${student.id})}">Back</a>
 </body>
 </html>
