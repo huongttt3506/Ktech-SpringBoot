@@ -3,6 +3,7 @@ package com.example.crud;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -20,4 +21,14 @@ public interface StudentMapper {
 
     @Select("SELECT * FROM student WHERE id = #{id};")
     Student selectStudent(Long id);
+
+    @Update("""
+            UPDATE student SET
+                name = #{name},
+                email = #{email},
+                age = #{age},
+                phone = #{phone}
+            WHERE id = #{id};
+            """)
+    void updateStudent(Student student);
 }

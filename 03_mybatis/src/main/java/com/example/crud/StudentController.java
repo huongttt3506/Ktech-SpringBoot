@@ -21,7 +21,13 @@ public class StudentController {
 //        ));
         System.out.println(dao.readStudentAll());
         System.out.println(dao.readStudent(1L));
-        System.out.println(dao.readStudent(2L));
+
+        Student alex = dao.readStudent(1L);
+        alex.setAge(alex.getAge() == 10 ? 20 : 10);
+        alex.setEmail(alex.getEmail().endsWith("gmail.com") ? "alex@naver.com" : "alex@gmail.com");
+        dao.updateStudent(alex);
+        System.out.println(dao.readStudent(1L));
+
         return "test.html";
     }
 }

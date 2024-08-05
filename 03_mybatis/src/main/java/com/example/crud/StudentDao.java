@@ -41,4 +41,12 @@ public class StudentDao {
             return mapper.selectStudent(id);
         }
     }
+
+    public void updateStudent(Student student) {
+        try (SqlSession session = sessionFactory.openSession()){
+            StudentMapper mapper =
+                    session.getMapper(StudentMapper.class);
+            mapper.updateStudent(student);
+        }
+    }
 }
