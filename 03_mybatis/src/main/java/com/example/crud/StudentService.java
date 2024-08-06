@@ -7,9 +7,14 @@ import java.util.List;
 @Service
 public class StudentService {
     private final StudentDao dao;
+    private final StudentDaoX daoX;
 
-    public StudentService(StudentDao dao) {
+    public StudentService(
+            StudentDao dao,
+            StudentDaoX daoX
+    ) {
         this.dao = dao;
+        this.daoX = daoX;
     }
 
     public void create(
@@ -27,7 +32,10 @@ public class StudentService {
     }
 
     public List<Student> readAll() {
-        return dao.readStudentAll();
+        System.out.println(dao.readStudentAll());
+        System.out.println(daoX.readStudentAll());
+//        return dao.readStudentAll();
+        return daoX.readStudentAll();
     }
 
     public Student readOne(Long id) {

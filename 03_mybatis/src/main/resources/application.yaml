@@ -4,5 +4,6 @@ spring:
     driver-class-name: org.sqlite.JDBC
 
 mybatis:
+  mapper-locations: classpath:mybatis/mappers/*.xml
   configuration:
     map-underscore-to-camel-case: true
