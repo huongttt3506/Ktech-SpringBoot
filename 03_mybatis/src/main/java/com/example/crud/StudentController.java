@@ -1,12 +1,16 @@
 package com.example.crud;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+// 클래스에 RequestMapping을 추가하면
+// 각 메서드의 Mapping의 앞에 붙는다.
+@RequestMapping("students")
 public class StudentController {
     private final StudentService service;
 
@@ -14,11 +18,13 @@ public class StudentController {
         this.service = service;
     }
 
+    // 클래스의 RequestMapping과 합쳐져서 /students/create-view
     @GetMapping("create-view")
     public String createView() {
         return "create-view.html";
     }
 
+    // /students/create
     @PostMapping("create")
     public String create(
             @RequestParam("name")
@@ -31,33 +37,14 @@ public class StudentController {
             String email
     ) {
         service.create(name, age, phone, email);
-        return "redirect:/create-view";
+        return "redirect:/students";
     }
 
-//    public StudentController(StudentDao dao) {
-//        this.dao = dao;
-//    }
-
-//    @RequestMapping("test")
-//    public String test() {
-////        dao.createStudent(new Student(
-////                null,
-////                "alex",
-////                19,
-////                "01000000000",
-////                "alex@gmail.com"
-////        ));
-//        System.out.println(dao.readStudentAll());
-//        System.out.println(dao.readStudent(1L));
-//
-//        Student alex = dao.readStudent(1L);
-//        alex.setAge(alex.getAge() == 10 ? 20 : 10);
-//        alex.setEmail(alex.getEmail().endsWith("gmail.com") ? "alex@naver.com" : "alex@gmail.com");
-//        dao.updateStudent(alex);
-//        System.out.println(dao.readStudent(1L));
-//
-//        dao.deleteStudent(2L);
-//
-//        return "test.html";
-//    }
+    // 메서드의 PATH가 지정되지 않으면
+    // 클래스 PATH만 사용 (/students)
+    @GetMapping
+    public String readAll(Model model) {
+        model.addAttribute("studentList", service.readAll());
+        return "home.html";
+    }
 }

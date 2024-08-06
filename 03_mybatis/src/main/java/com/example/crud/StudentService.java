@@ -2,6 +2,8 @@ package com.example.crud;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
     private final StudentDao dao;
@@ -22,5 +24,9 @@ public class StudentService {
         student.setPhone(phone);
         student.setEmail(email);
         dao.createStudent(student);
+    }
+
+    public List<Student> readAll() {
+        return dao.readStudentAll();
     }
 }
