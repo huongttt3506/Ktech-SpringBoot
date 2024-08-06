@@ -65,4 +65,9 @@ public class StudentService {
 //        dao.updateStudent(target);
         daoX.updateStudent(target);
     }
+
+    public void delete(Long id) {
+//        dao.deleteStudent(id);
+        daoX.deleteStudent(id);
+    }
 }

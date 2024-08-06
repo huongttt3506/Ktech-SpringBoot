@@ -87,4 +87,13 @@ public class StudentController {
         );
         return String.format("redirect:/students/%d", id);
     }
+
+    @PostMapping("{id}/delete")
+    public String delete(
+            @PathVariable("id")
+            Long id
+    ) {
+        service.delete(id);
+        return "redirect:/students";
+    }
 }

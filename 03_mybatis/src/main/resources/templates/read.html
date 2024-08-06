@@ -11,5 +11,8 @@
   <p>이메일: [[${student.email}]]</p>
   <a href="/students">Back</a>
   <a th:href="@{/students/{id}/update-view (id=${student.id})}">Update</a>
+  <form th:action="@{/students/{id}/delete (id=${student.id})}" method="post">
+    <input type="submit" value="Delete">
+  </form>
 </body>
 </html>
