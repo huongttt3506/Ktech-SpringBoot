@@ -1,5 +1,6 @@
 package com.example.crud;
 
+import com.example.crud.model.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

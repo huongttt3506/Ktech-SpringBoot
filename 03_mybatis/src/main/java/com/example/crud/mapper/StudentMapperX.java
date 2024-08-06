@@ -1,6 +1,6 @@
 package com.example.crud.mapper;
 
-import com.example.crud.Student;
+import com.example.crud.model.Student;
 
 import java.util.List;
 

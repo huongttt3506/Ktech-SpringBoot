@@ -1,5 +1,6 @@
 package com.example.crud;
 
+import com.example.crud.model.Student;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Repository;

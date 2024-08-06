@@ -5,5 +5,6 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mybatis/mappers/*.xml
+  type-aliases-package: com.example.crud.model
   configuration:
     map-underscore-to-camel-case: true

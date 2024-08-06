@@ -1,5 +1,6 @@
 package com.example.crud;
 
+import com.example.crud.model.Student;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
