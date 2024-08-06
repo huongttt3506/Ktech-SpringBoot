@@ -54,4 +54,37 @@ public class StudentController {
         model.addAttribute("student", service.readOne(id));
         return "read.html";
     }
+
+    @GetMapping("{id}/update-view")
+    public String updateView(
+            @PathVariable("id")
+            Long id,
+            Model model
+    ) {
+        model.addAttribute("student", service.readOne(id));
+        return "update-view.html";
+    }
+
+    @PostMapping("{id}/update")
+    public String update(
+            @PathVariable("id")
+            Long id,
+            @RequestParam("name")
+            String name,
+            @RequestParam("age")
+            Integer age,
+            @RequestParam("phone")
+            String phone,
+            @RequestParam("email")
+            String email
+    ) {
+        service.update(
+                id,
+                name,
+                age,
+                phone,
+                email
+        );
+        return String.format("redirect:/students/%d", id);
+    }
 }
