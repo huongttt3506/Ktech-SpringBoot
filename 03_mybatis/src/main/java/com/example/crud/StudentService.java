@@ -29,7 +29,8 @@ public class StudentService {
         student.setAge(age);
         student.setPhone(phone);
         student.setEmail(email);
-        dao.createStudent(student);
+//        dao.createStudent(student);
+        daoX.createStudent(student);
     }
 
     public List<Student> readAll() {
@@ -61,6 +62,7 @@ public class StudentService {
         target.setPhone(phone);
         target.setEmail(email);
         // 3. dao에 저장하도록 넘겨준다.
-        dao.updateStudent(target);
+//        dao.updateStudent(target);
+        daoX.updateStudent(target);
     }
 }

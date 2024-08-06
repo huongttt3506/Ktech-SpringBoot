@@ -17,6 +17,14 @@ public class StudentDaoX {
         this.sessionFactory = sessionFactory;
     }
 
+    public void createStudent(Student student) {
+        try (SqlSession session = sessionFactory.openSession()) {
+            StudentMapperX mapper =
+                    session.getMapper(StudentMapperX.class);
+            mapper.insertStudent(student);
+        }
+    }
+
     public List<Student> readStudentAll() {
         try (SqlSession session = sessionFactory.openSession()){
             StudentMapperX mapper =
@@ -30,6 +38,22 @@ public class StudentDaoX {
             StudentMapperX mapper =
                     session.getMapper(StudentMapperX.class);
             return mapper.selectStudent(id);
+        }
+    }
+
+    public void updateStudent(Student student) {
+        try (SqlSession session = sessionFactory.openSession()){
+            StudentMapperX mapper =
+                    session.getMapper(StudentMapperX.class);
+            mapper.updateStudent(student);
+        }
+    }
+
+    public void deleteStudent(Long id) {
+        try (SqlSession session = sessionFactory.openSession()){
+            StudentMapperX mapper =
+                    session.getMapper(StudentMapperX.class);
+            mapper.deleteStudent(id);
         }
     }
 }
