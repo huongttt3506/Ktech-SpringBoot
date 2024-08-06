@@ -2,10 +2,7 @@ package com.example.crud;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 // 클래스에 RequestMapping을 추가하면
@@ -46,5 +43,15 @@ public class StudentController {
     public String readAll(Model model) {
         model.addAttribute("studentList", service.readAll());
         return "home.html";
+    }
+
+    @GetMapping("{id}")
+    public String readOne(
+            @PathVariable("id")
+            Long id,
+            Model model
+    ) {
+        model.addAttribute("student", service.readOne(id));
+        return "read.html";
     }
 }

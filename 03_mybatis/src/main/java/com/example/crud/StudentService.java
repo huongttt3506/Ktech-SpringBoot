@@ -29,4 +29,8 @@ public class StudentService {
     public List<Student> readAll() {
         return dao.readStudentAll();
     }
+
+    public Student readOne(Long id) {
+        return dao.readStudent(id);
+    }
 }
