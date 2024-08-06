@@ -10,5 +10,6 @@
   <p>전화번호: [[${student.phone}]]</p>
   <p>이메일: [[${student.email}]]</p>
   <a href="/students">Back</a>
+  <a th:href="@{/students/{id}/update-view (id=${student.id})}">Update</a>
 </body>
 </html>
