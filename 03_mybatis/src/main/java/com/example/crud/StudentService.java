@@ -40,7 +40,10 @@ public class StudentService {
     }
 
     public Student readOne(Long id) {
-        return dao.readStudent(id);
+        System.out.println(dao.readStudent(id));
+        System.out.println(daoX.readStudent(id));
+//        return dao.readStudent(id);
+        return daoX.readStudent(id);
     }
 
     public void update(

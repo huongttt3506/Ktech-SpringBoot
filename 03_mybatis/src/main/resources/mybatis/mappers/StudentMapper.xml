@@ -5,4 +5,7 @@
     <select id="selectStudentAll" resultType="Student">
         SELECT * FROM student;
     </select>
+    <select id="selectStudent" parameterType="Long" resultType="Student">
+        SELECT * FROM student WHERE id = #{id};
+    </select>
 </mapper>
