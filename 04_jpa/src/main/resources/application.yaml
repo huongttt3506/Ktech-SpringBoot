@@ -14,3 +14,9 @@ spring:
     show-sql: true
     # 내가 사용하는 데이터베이스의 방언
     database-platform: org.hibernate.community.dialect.SQLiteDialect
+
+  # 여기 아래는 초기 데이터 용 설정
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
