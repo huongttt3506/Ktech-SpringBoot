@@ -1,4 +1,4 @@
-package com.example.jpa;
+package com.example.jpa.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,5 +1,6 @@
-package com.example.jpa;
+package com.example.jpa.repo;
 
+import com.example.jpa.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository

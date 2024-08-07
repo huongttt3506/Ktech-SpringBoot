@@ -1,5 +1,7 @@
 package com.example.jpa;
 
+import com.example.jpa.model.Student;
+import com.example.jpa.repo.StudentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
