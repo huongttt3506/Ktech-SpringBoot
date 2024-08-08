@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
   <meta charset="UTF-8">
   <title>Create</title>
@@ -25,12 +25,14 @@
     <input class="form-control" id="email-input" type="text" name="email">
   </div>
 
-  <select name="advisor-id" id="advisor-select">
-    <option value="1">Instructor A</option>
-    <option value="2">Instructor B</option>
-    <option value="3">Instructor C</option>
-    <option value="4">Instructor D</option>
-  </select><br>
+  <div class="mb-3">
+    <label class="form-label" for="advisor-select">Advisor: </label>
+    <select class="form-control" name="advisor-id" id="advisor-select">
+      <option th:value="${instructor.id}" th:each="instructor: ${instructorList}">
+        [[${instructor.firstName}]] [[${instructor.lastName}]]
+      </option>
+    </select>
+  </div>
 
   <input class="btn btn-primary" type="submit" value="Create">
 </form>

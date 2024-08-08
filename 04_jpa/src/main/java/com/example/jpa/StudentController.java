@@ -10,13 +10,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("students")
 public class StudentController {
     private final StudentService service;
-    public StudentController(StudentService service) {
+    private final InstructorService instructorService;
+    public StudentController(
+            StudentService service,
+            InstructorService instructorService
+    ) {
         this.service = service;
+        this.instructorService = instructorService;
     }
 
     // CREATE
     @GetMapping("create")
-    public String createView() {
+    public String createView(Model model) {
+        model.addAttribute(
+                "instructorList",
+                instructorService.readAll()
+        );
+        model.addAttribute("student", "");
         return "students/create.html";
     }
 
