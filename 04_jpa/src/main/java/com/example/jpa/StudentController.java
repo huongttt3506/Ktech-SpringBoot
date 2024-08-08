@@ -29,9 +29,17 @@ public class StudentController {
             @RequestParam("phone")
             String phone,
             @RequestParam("email")
-            String email
+            String email,
+            @RequestParam("advisor-id")
+            Long advisorId
     ) {
-        Student created = service.create(name, age, phone, email);
+        Student created = service.create(
+                name,
+                age,
+                phone,
+                email,
+                advisorId
+        );
         return String.format("redirect:/students/%d", created.getId());
     }
 
