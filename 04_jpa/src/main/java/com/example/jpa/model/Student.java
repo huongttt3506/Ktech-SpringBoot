@@ -15,4 +15,7 @@ public class Student {
     private Integer age;
     private String email;
     private String phone;
+    @ManyToOne
+//    @JoinColumn(name = "advisor")
+    private Instructor advisor;
 }
