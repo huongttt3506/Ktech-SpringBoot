@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Instructors</title>
+</head>
+<body>
+<h1>Instructor List</h1>
+<!-- 저장된 교수가 없을 경우 -->
+<div th:if="${instructorList.isEmpty()}">
+  <p>No Instructors Here...</p>
+</div>
+<!-- 저장된 교수가 있는 경우 -->
+<div
+        th:unless="${instructorList.isEmpty()}"
+        th:each="instructor: ${instructorList}"
+>
+  <p>ID: [[${instructor.id}]]</p>
+  <p>Name: [[${instructor.firstName}]] [[${instructor.lastName}]]</p>
+  <hr>
+</div>
+</body>
+</html>

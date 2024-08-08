@@ -1,3 +1,16 @@
+INSERT INTO instructor (first_name,last_name)
+VALUES
+    ('Vivien','Moran'),
+    ('Tanisha','Gordon'),
+    ('Sharon','Harrell'),
+    ('Christopher','Mcclain'),
+    ('Edan','Brian'),
+    ('Plato','Best'),
+    ('Uriah','Nguyen'),
+    ('Jesse','Romero'),
+    ('Nehru','Huff'),
+    ('Jolene','Roach');
+
 INSERT INTO student (name,age,phone,email)
 VALUES
     ('Deirdre Mclean',36,'010-2453-6183','proin.velit@yahoo.couk'),
