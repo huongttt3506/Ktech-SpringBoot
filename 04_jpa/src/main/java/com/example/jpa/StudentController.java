@@ -1,10 +1,9 @@
 package com.example.jpa;
 
+import com.example.jpa.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 // 이곳의 모든 요청은 /students 부터 시작했으면
@@ -13,6 +12,27 @@ public class StudentController {
     private final StudentService service;
     public StudentController(StudentService service) {
         this.service = service;
+    }
+
+    // CREATE
+    @GetMapping("create")
+    public String createView() {
+        return "students/create.html";
+    }
+
+    @PostMapping("create")
+    public String create(
+            @RequestParam("name")
+            String name,
+            @RequestParam("age")
+            Integer age,
+            @RequestParam("phone")
+            String phone,
+            @RequestParam("email")
+            String email
+    ) {
+        Student created = service.create(name, age, phone, email);
+        return String.format("redirect:/students/%d", created.getId());
     }
 
     // READ ALL

@@ -14,6 +14,21 @@ public class StudentService {
         this.repository = repository;
     }
 
+    // CREATE
+    public Student create(
+            String name,
+            Integer age,
+            String phone,
+            String email
+    ) {
+        Student student = new Student();
+        student.setName(name);
+        student.setAge(age);
+        student.setPhone(phone);
+        student.setEmail(email);
+        return repository.save(student);
+    }
+
     // READ
     public List<Student> readAll() {
         return repository.findAll();
